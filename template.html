@@ -1,0 +1,529 @@
+﻿<html>
+<head>
+    <title> Processing.js Template</title>
+    <script type="text/javascript" src="processing.js"></script>
+    <script type="text/javascript" src="init.js"></script>
+</head>
+<body>
+    <h1 style="font-family: Arial, Helvetica, sans-serif;"> Processing.js: ______</h1>
+    <script type="application/processing">
+
+        boolean xTurn = true;
+        int row1;
+        int row2;
+        int row3;
+        int column1;
+        int column2;
+        int column3;
+        int diagonal1;
+        int diagonal2;
+        int moveNumber;
+        //0 == empty 1 == x 2 == o
+        int boardList[] = new int[9];
+        void setup() {
+        size(600, 600);
+        background(0);
+        fill(255);
+        stroke(255);
+        strokeWeight(5);
+        line(200, 0, 200, 600);
+        line(400, 0, 400, 600);
+        line(0, 200, 600, 200);
+        line(0, 400, 600, 400);
+        }
+        void draw() {
+        //printArray(boardList);
+        noFill();
+        /*if (mousePressed) {
+        if (mouseX
+        <200 && mouseY<200 && boardList[0] == 0) {
+      if (xTurn == true) {
+        boardList[0] = 1;
+        drawX(100,100);
+        switchTurn();
+        row1++;
+        column1++;
+        diagonal1++;
+      } else {
+        boardList[0] = 2;
+        row1--;
+        column1--;
+        diagonal1--;
+        drawO(100,100);
+        switchTurn();
+      }
+      computerMove();
+    }
+    if (mouseX>200 && mouseX<400 && mouseY<200 && boardList[1] == 0) {
+      if (xTurn == true) {
+        boardList[1] = 1;
+        drawX(300,100);
+        switchTurn();
+        row1++;
+        column2++;
+      } else {
+        boardList[1] = 2;
+        row1--;
+        column2--;
+       drawO(300,100);
+       switchTurn();
+      }
+      computerMove();
+    }
+    if (mouseX>400 && mouseX<600 && mouseY<200 && boardList[2] == 0) {
+      if (xTurn == true) {
+        boardList[2] = 1;
+        drawX(500,100);
+        switchTurn();
+        row1++;
+        column3++;
+        diagonal2++;
+      } else {
+        boardList[2] = 2;
+         row1--;
+        column3--;
+        diagonal2--;
+        drawO(500,100);
+        switchTurn();
+      }
+      computerMove();
+    }
+    if (mouseX<200 && mouseY>200 && mouseY < 400 && boardList[3] == 0) {
+      if (xTurn == true) {
+        boardList[3] = 1;
+        drawX(100, 300);
+        switchTurn();
+         row2++;
+        column1++;
+      } else {
+        boardList[3] = 2;
+         row2--;
+        column1--;
+        drawO(100,300);
+        switchTurn();
+      }
+      computerMove();
+    }
+    if (mouseX>200 && mouseX<400 && mouseY>200 && mouseY < 400 && boardList[4] == 0) {
+      if (xTurn == true) {
+        boardList[4] = 1;
+        drawX(300, 300);
+        switchTurn();
+         row2++;
+        column2++;
+        diagonal1++;
+        diagonal2++;
+      } else {
+        boardList[4] = 2;
+        row2--;
+        column2--;
+        diagonal1--;
+        diagonal2--;
+        drawO(300,300);
+        switchTurn();
+      }
+      computerMove();
+    }
+    if (mouseX>400 && mouseX<600 && mouseY>200 && mouseY < 400 && boardList[5] == 0) {
+      if (xTurn == true) {
+        boardList[5] = 1;
+        drawX(500, 300);
+        switchTurn();
+        row2++;
+        column3++;
+      } else {
+        boardList[5] = 2;
+        row2--;
+        column3--;
+        drawO(500,300);
+        switchTurn();
+      }
+      computerMove();
+    }
+    if (mouseX<200 && mouseY>400 && boardList[6] == 0) {
+      if (xTurn == true) {
+        boardList[6] = 1;
+        drawX(100, 500);
+        switchTurn();
+        row3++;
+        column1++;
+        diagonal2++;
+      } else {
+        boardList[6] = 2;
+        row3--;
+        column1--;
+        diagonal2--;
+        drawO(100,500);
+        switchTurn();
+      }
+      computerMove();
+    }
+    if (mouseX>200 && mouseX<400 && mouseY>400 && boardList[7] == 0) {
+      if (xTurn == true) {
+        boardList[7] = 1;
+        drawX(300, 500);
+        switchTurn();
+         row3++;
+        column2++;
+      } else {
+        boardList[7] = 2;
+         row3--;
+        column2--;
+        drawO(300,500);
+        switchTurn();
+      }
+      computerMove();
+    }
+    if (mouseX>400 && mouseX<600 && mouseY>400 && boardList[8] == 0) {
+      if (xTurn == true) {
+        boardList[8] = 1;
+        drawX(500, 500);
+        switchTurn();
+        row3++;
+        column3++;
+        diagonal1++;
+      } else {
+        boardList[8] = 2;
+        row3--;
+        column3--;
+        diagonal1--;
+        drawO(500,500);
+        switchTurn();
+      }
+      //computerMove();
+    }
+  }*/
+  if (mousePressed) {
+    if (mouseX<200 && mouseY<200 && boardList[0] == 0) {
+      selectSquareX(0);
+    }
+    if (mouseX>200 && mouseX<400 && mouseY<200 && boardList[1] == 0) {
+selectSquareX(1);
+    }
+    if (mouseX>400 && mouseX<600 && mouseY<200 && boardList[2] == 0) {
+selectSquareX(2);
+      }
+    if (mouseX<200 && mouseY>200 && mouseY < 400 && boardList[3] == 0) {
+selectSquareX(3);
+      }
+    if (mouseX>200 && mouseX<400 && mouseY>200 && mouseY < 400 && boardList[4] == 0) {
+selectSquareX(4);
+    }
+    if (mouseX>400 && mouseX<600 && mouseY>200 && mouseY < 400 && boardList[5] == 0) {
+      selectSquareX(5);
+      }
+    if (mouseX<200 && mouseY>400 && boardList[6] == 0) {
+selectSquareX(6);
+      }
+    if (mouseX>200 && mouseX<400 && mouseY>400 && boardList[7] == 0) {
+selectSquareX(7);
+      }
+    if (mouseX>400 && mouseX<600 && mouseY>400 && boardList[8] == 0) {
+selectSquareX(8);
+      }
+  }
+  if(row1==3 || row2 == 3 || row3 == 3 || column1 == 3 || column2 == 3 || column3 ==3 || diagonal1 == 3 || diagonal2 == 3){
+println("X Wins");
+  }
+   if(row1==-3 || row2 == -3 || row3 == -3 || column1 == -3 || column2 == -3 || column3 == -3 || diagonal1 == -3 || diagonal2 == -3){
+println("O Wins");
+  }
+}
+void selectSquareX(int num){
+  switch(num) {
+    case 0:
+            boardList[0] = 1;
+        drawX(100,100);
+        switchTurn();
+        row1++;
+        column1++;
+        diagonal1++;
+        break;
+    case 1:
+            boardList[1] = 1;
+        drawX(300,100);
+        switchTurn();
+        row1++;
+        column2++;
+        break;
+    case 2:
+            boardList[2] = 1;
+        drawX(500,100);
+        switchTurn();
+        row1++;
+        column3++;
+        diagonal2++;
+        break;
+    case 3:
+            boardList[3] = 1;
+        drawX(100, 300);
+        switchTurn();
+         row2++;
+        column1++;
+        break;
+    case 4:
+            boardList[4] = 1;
+        drawX(300, 300);
+        switchTurn();
+         row2++;
+        column2++;
+        diagonal1++;
+        diagonal2++;
+        break;
+    case 5:
+            boardList[5] = 1;
+        drawX(500, 300);
+        switchTurn();
+        row2++;
+        column3++;
+        break;
+    case 6:
+            boardList[6] = 1;
+        drawX(100, 500);
+        switchTurn();
+        row3++;
+        column1++;
+        diagonal2++;
+        break;
+    case 7:
+            boardList[7] = 1;
+        drawX(300, 500);
+        switchTurn();
+         row3++;
+        column2++;
+        break;
+    case 8:
+            boardList[8] = 1;
+        drawX(500, 500);
+        switchTurn();
+        row3++;
+        column3++;
+        diagonal1++;
+        break;
+  }
+    computerMove();
+}
+void selectSquareO(int num){
+  switch(num) {
+    case 0:
+            boardList[0] = 2;
+        drawO(100,100);
+        switchTurn();
+        row1--;
+        column1--;
+        diagonal1--;
+        break;
+    case 1:
+            boardList[1] = 2;
+        drawO(300,100);
+        switchTurn();
+        row1--;
+        column2--;
+        break;
+    case 2:
+            boardList[2] = 2;
+        drawO(500,100);
+        switchTurn();
+        row1--;
+        column3--;
+        diagonal2--;
+        break;
+    case 3:
+            boardList[3] = 2;
+        drawO(100, 300);
+        switchTurn();
+         row2--;
+        column1--;
+        break;
+    case 4:
+            boardList[4] = 2;
+        drawO(300, 300);
+        switchTurn();
+         row2--;
+        column2--;
+        diagonal1--;
+        diagonal2--;
+        break;
+    case 5:
+            boardList[5] = 2;
+        drawO(500, 300);
+        switchTurn();
+        row2--;
+       column3--;
+        break;
+    case 6:
+            boardList[6] = 2;
+        drawO(100, 500);
+        switchTurn();
+        row3--;
+        column1--;
+        diagonal2--;
+        break;
+    case 7:
+            boardList[7] = 2;
+        drawO(300, 500);
+        switchTurn();
+         row3--;
+        column2--;
+        break;
+    case 8:
+            boardList[8] = 2;
+        drawO(500, 500);
+        switchTurn();
+        row3--;
+        column3--;
+        diagonal1--;
+        break;
+  }
+}
+void switchTurn(){
+  if(xTurn == false){
+    xTurn = true;
+} else{
+  xTurn = false;
+}
+}
+void drawX(int x,int y){
+  line(x-100, y-100, x+100, y+100);
+  line(x-100, y+100, x+100, y-100);
+}
+void drawO(int x, int y){
+  ellipse(x, y, 200,200);
+}
+void computerMove(){
+moveNumber++;
+println(moveNumber);
+int t = 0;
+boolean computerMoved = false;
+int rand = round(random(8));
+while(computerMoved == false && t<100){
+if(row1 == -2){
+  for(int i = 0 ; i<3; i++){
+    if(boardList[i] == 0){
+      selectSquareO(i);
+    }
+  }
+  computerMoved = true;
+}else if(row2 == -2){
+  for(int i = 3 ; i<6; i++){
+    if(boardList[i] == 0){
+      selectSquareO(i);
+    }
+  }
+  computerMoved = true;
+} else if(row3 == -2){
+  for(int i = 6 ; i<9; i++){
+    if(boardList[i] == 0){
+      selectSquareO(i);
+    }
+  }
+  computerMoved = true;
+}  else if(column1 == -2){
+  for(int i = 0 ; i<7; i=i+3){
+    if(boardList[i] == 0){
+      selectSquareO(i);
+    }
+  }
+  computerMoved = true;
+}else if(column2 == -2){
+  for(int i = 1 ; i<8; i=i+3){
+    if(boardList[i] == 0){
+      selectSquareO(i);
+    }
+  }
+  computerMoved = true;
+}else if(column3 == -2){
+  for(int i = 2 ; i<9; i=i+3){
+    if(boardList[i] == 0){
+      selectSquareO(i);
+    }
+  }
+  computerMoved = true;
+}else if(diagonal1 == -2){
+  for(int i = 0 ; i<9; i=i+4){
+    if(boardList[i] == 0){
+      selectSquareO(i);
+    }
+  }
+  computerMoved = true;
+}else if(diagonal2 == -2){
+  for(int i = 2 ; i<7; i=i+2){
+    if(boardList[i] == 0){
+      selectSquareO(i);
+    }
+  }
+  computerMoved = true;
+}else if(row1 == 2){
+  for(int i = 0 ; i<3; i++){
+    if(boardList[i] == 0){
+      selectSquareO(i);
+    }
+  }
+  computerMoved = true;
+}else if(row2 == 2){
+  for(int i = 3 ; i<6; i++){
+    if(boardList[i] == 0){
+      selectSquareO(i);
+    }
+  }
+  computerMoved = true;
+} else if(row3 == 2){
+  for(int i = 6 ; i<9; i++){
+    if(boardList[i] == 0){
+      selectSquareO(i);
+    }
+  }
+  computerMoved = true;
+}  else if(column1 == 2){
+  for(int i = 0 ; i<7; i=i+3){
+    if(boardList[i] == 0){
+      selectSquareO(i);
+    }
+  }
+  computerMoved = true;
+}else if(column2 == 2){
+  for(int i = 1 ; i<8; i=i+3){
+    if(boardList[i] == 0){
+      selectSquareO(i);
+    }
+  }
+  computerMoved = true;
+}else if(column3 == 2){
+  for(int i = 2 ; i<9; i=i+3){
+    if(boardList[i] == 0){
+      selectSquareO(i);
+    }
+  }
+  computerMoved = true;
+}else if(diagonal1 == 2){
+  for(int i = 0 ; i<9; i=i+4){
+    if(boardList[i] == 0){
+      selectSquareO(i);
+    }
+  }
+  computerMoved = true;
+}else if(diagonal2 == 2){
+  for(int i = 2 ; i<7; i=i+2){
+    if(boardList[i] == 0){
+      selectSquareO(i);
+    }
+  }
+  computerMoved = true;
+} else if(moveNumber == 1 && boardList[4] == 0){
+  selectSquareO(4);
+  computerMoved = true;
+}  else if(boardList[rand] == 0){
+  selectSquareO(rand);
+  computerMoved = true;
+} else{
+  t++;
+  rand = round(random(8));
+}
+}
+}
+    </script>
+
+    <canvas></canvas>
+
+</body>
+</html>
